@@ -5,16 +5,19 @@ const UserSchema = new mongoose.Schema({
     name: {
         type:String,
         required: true,
-        unique: true,
+        min:2,
+        max:50,
     },
     email: {
         type:String,
         required: true,
+        max:50,
         unique: true,
     },
     password: {
         type:String,
         required: true,
+        min:5,
     },
     img:{
         type:String,
@@ -24,7 +27,8 @@ const UserSchema = new mongoose.Schema({
         default:0
     },
     subscribedUser:{
-        type:[String]
+        type:[String],
+        default:[]
     }
 },{timestamps:true});
 
