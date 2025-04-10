@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
 import userRoutes from './routes/user.js'
 import imgRoutes from './routes/img.js'
 import commentRoutes from './routes/comment.js'
@@ -8,6 +9,7 @@ import commentRoutes from './routes/comment.js'
 /* CONFIGURATIONS */
 dotenv.config();
 const app = express();
+app.use(bodyParser.json());
 
 //middlewares
 app.use(cookieParser())
@@ -16,7 +18,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/comments", commentRoutes);
-
 
 //error handler
 app.use((err, req, res, next) => {
@@ -29,7 +30,6 @@ app.use((err, req, res, next) => {
     });
   });
 
-
 /* MONGOOSE */
 const connect = () =>{
     mongoose.connect(process.env.MONGO).then(()=>{
@@ -37,7 +37,7 @@ const connect = () =>{
     }).catch((err)=>{throw err;});
 }
 
-app.listen(8800,()=>{
+app.listen(process.env.PORT,()=>{
     connect()
     console.log("connected to server ")
 })

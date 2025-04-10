@@ -88,3 +88,15 @@ export const like = async (req, res, next) => {
   }
 };
 
+export const dislike = async (req, res, next) => {
+    const id = req.user.id;
+    const imgId = req.params.imgId;
+    try {
+      await Image.findByIdAndUpdate(imgId,{
+        $pull:{likes:id}
+      })
+      res.status(200).json("The video has been disliked.")
+  } catch (err) {
+    next(err);
+  }
+};
