@@ -1,14 +1,17 @@
 import './App.css'
 import { Button } from "@/components/ui/button"
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import SignUp from './pages/SignUp'
 
 function App() {
 
   return (
-    <div>  
-      <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  <Button>Click me</Button>
+    <div className='app'>  
+      <BrowserRouter>
+        <Routes>
+         
+        </Routes>
+      </BrowserRouter>
   </div>
   )
 }
