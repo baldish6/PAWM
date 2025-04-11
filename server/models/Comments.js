@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ImageSchema = new mongoose.Schema(
+const CommentSchema = new mongoose.Schema(
     {
         userId : {
             type: String,
@@ -16,4 +16,4 @@ const ImageSchema = new mongoose.Schema(
         }
     }
 );
-export default mongoose.model("Video", ImageSchema);
+export default mongoose.model("Comment", CommentSchema);

@@ -5,6 +5,9 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/user.js'
 import imgRoutes from './routes/img.js'
 import commentRoutes from './routes/comment.js'
+import authRoutes from "./routes/auth.js";
+import cookieParser from "cookie-parser";
+
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -16,7 +19,7 @@ app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/videos", videoRoutes);
+app.use("/api/img", imgRoutes);
 app.use("/api/comments", commentRoutes);
 
 //error handler

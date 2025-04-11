@@ -1,6 +1,6 @@
 import express from "express";
 import { addImg,  getImg, updateImg, deleteImg, search, sub } from "../controllers/img.js";
-import { verifyToken } from "../verifyToken.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 

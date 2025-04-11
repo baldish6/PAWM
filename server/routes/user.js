@@ -6,8 +6,9 @@ import {
   subscribe,
   unsubscribe,
   like,
+  dislike,
 } from "../controllers/user.js";
-import { verifyToken } from "../verifyToken.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
@@ -29,7 +30,7 @@ router.put("/unsub/:id", verifyToken, unsubscribe);
 //like a img
 router.put("/like/:imgId", verifyToken, like);
 
-//dislike a video
+//dislike a img
 router.put("/dislike/:imgId", verifyToken, dislike);
 
 

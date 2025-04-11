@@ -1,5 +1,5 @@
 import { createError } from "../error.js";
-import Comment from "../models/Comment.js";
+import Comment from "../models/Comments.js";
 import Image from "../models/Image.js";
 
 export const addComment = async (req, res, next) => {
