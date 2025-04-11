@@ -18,9 +18,6 @@ const UserSchema = new mongoose.Schema({
         type:String,
         min:5,
     },
-    img:{
-        type:String,
-    },
     subscribers:{
         type:Number,
         default:0

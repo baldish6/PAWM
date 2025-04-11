@@ -35,6 +35,7 @@ app.use((err, req, res, next) => {
 
 /* MONGOOSE */
 const connect = () => {
+  console.log("connecting");
   mongoose
     .connect(process.env.MONGO)
     .then(() => {
@@ -45,7 +46,7 @@ const connect = () => {
     });
 };
 
-app.listen(8800, () => {
+app.listen(process.env.PORT, () => {
   connect();
   console.log("Connected to Server");
 });
