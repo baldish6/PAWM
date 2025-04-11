@@ -34,13 +34,18 @@ app.use((err, req, res, next) => {
   });
 
 /* MONGOOSE */
-const connect = () =>{
-    mongoose.connect(process.env.MONGO).then(()=>{
-        console.log("connected to db ")
-    }).catch((err)=>{throw err;});
-}
+const connect = () => {
+  mongoose
+    .connect(process.env.MONGO)
+    .then(() => {
+      console.log("Connected to DB");
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 
-app.listen(process.env.PORT,()=>{
-    connect()
-    console.log("connected to server ")
-})
+app.listen(8800, () => {
+  connect();
+  console.log("Connected to Server");
+});
